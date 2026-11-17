@@ -1,0 +1,567 @@
+# Revised experiments: summary
+
+## Accuracy at round 40 (mean ± SD over seeds, equal-weight / size-weighted)
+- A linear    Centralized         74.85 ± 0.40 /  76.70  F1 0.653  AUC 0.9371  worst 55.49  (lr 0.001, mu 0)
+- A linear    FedAvg              68.77 ± 0.86 /  71.99  F1 0.575  AUC 0.9172  worst 43.41  (lr 0.001, mu 0)
+- A linear    FedProx             71.13 ± 0.53 /  73.64  F1 0.597  AUC 0.9229  worst 51.51  (lr 0.001, mu 0.1)
+- A linear    FedSA-LoRA          69.93 ± 0.43 /  72.14  F1 0.568  AUC 0.9133  worst 50.62  (lr 0.0003, mu 0)
+- A linear    FedSAA              70.31 ± 0.99 /  72.63  F1 0.586  AUC 0.9225  worst 50.67  (lr 0.003, mu 0)
+- A linear    FedSAA (rho = 0)    70.26 ± 0.19 /  72.69  F1 0.568  AUC 0.9164  worst 50.82  (lr 0.0003, mu 0)
+- A linear    FedSAA-U            70.74 ± 0.18 /  73.14  F1 0.576  AUC 0.9186  worst 51.63  (lr 0.0003, mu 0)
+- A linear    FFA-LoRA            71.66 ± 0.36 /  74.08  F1 0.606  AUC 0.9240  worst 51.81  (lr 0.003, mu 0)
+- A linear    FlexLoRA            70.22 ± 0.24 /  72.63  F1 0.567  AUC 0.9157  worst 50.77  (lr 0.0003, mu 0)
+- A linear    Local-only          72.52 ± 0.28 /  74.40  F1 0.610  AUC 0.9231  worst 53.69  (lr 0.0003, mu 0)
+- A linear    Specialty oracle    74.91 ± 0.27 /  76.73  F1 0.652  AUC 0.9358  worst 55.14  (lr 0.001, mu 0)
+- A none      Linear probe        73.00 ± 0.18 /  75.20  F1 0.617  AUC 0.9280  worst 53.35  (lr 0.003, mu 0)
+- A nonlinear Centralized         74.60 ± 0.55 /  76.45  F1 0.646  AUC 0.9357  worst 55.32  (lr 0.001, mu 0)
+- A nonlinear FedAvg              66.29 ± 0.57 /  68.81  F1 0.508  AUC 0.8970  worst 44.74  (lr 0.0003, mu 0)
+- A nonlinear FedProx             71.52 ± 0.76 /  73.60  F1 0.602  AUC 0.9260  worst 52.46  (lr 0.003, mu 0.1)
+- A nonlinear FedSA-LoRA          68.88 ± 0.46 /  71.23  F1 0.546  AUC 0.9092  worst 49.11  (lr 0.0003, mu 0)
+- A nonlinear FFA-LoRA            71.90 ± 0.47 /  74.26  F1 0.609  AUC 0.9241  worst 51.88  (lr 0.003, mu 0)
+- A nonlinear Local-only          72.22 ± 0.30 /  74.06  F1 0.604  AUC 0.9217  worst 53.79  (lr 0.0003, mu 0)
+- A nonlinear Specialty oracle    73.67 ± 0.45 /  75.45  F1 0.621  AUC 0.9307  worst 54.95  (lr 0.0003, mu 0)
+- B linear    Centralized         79.52 ± 0.47 /  87.11  F1 0.725  AUC 0.9088  worst 51.13  (lr 0.0003, mu 0)
+- B linear    FedAvg              79.99 ± 0.63 /  87.61  F1 0.717  AUC 0.9039  worst 45.24  (lr 0.003, mu 0)
+- B linear    FedProx             79.97 ± 0.56 /  87.57  F1 0.717  AUC 0.9042  worst 45.09  (lr 0.003, mu 0.001)
+- B linear    FedSA-LoRA          80.39 ± 0.72 /  87.51  F1 0.731  AUC 0.9064  worst 46.86  (lr 0.003, mu 0)
+- B linear    FedSAA              79.39 ± 0.86 /  86.32  F1 0.725  AUC 0.9058  worst 46.66  (lr 0.003, mu 0)
+- B linear    FedSAA (rho = 0)    79.63 ± 0.45 /  87.02  F1 0.733  AUC 0.9087  worst 46.68  (lr 0.003, mu 0)
+- B linear    FedSAA-U            77.97 ± 0.30 /  85.72  F1 0.698  AUC 0.9001  worst 46.17  (lr 0.0003, mu 0)
+- B linear    FFA-LoRA            78.62 ± 0.34 /  86.03  F1 0.725  AUC 0.9040  worst 47.08  (lr 0.003, mu 0)
+- B linear    FlexLoRA            79.60 ± 0.61 /  87.64  F1 0.716  AUC 0.9020  worst 44.83  (lr 0.003, mu 0)
+- B linear    Local-only          78.88 ± 0.38 /  85.79  F1 0.721  AUC 0.9046  worst 47.86  (lr 0.0003, mu 0)
+- B linear    Specialty oracle    80.26 ± 0.51 /  87.76  F1 0.750  AUC 0.9194  worst 49.44  (lr 0.003, mu 0)
+- B none      Linear probe        78.92 ± 0.34 /  86.89  F1 0.723  AUC 0.9091  worst 46.69  (lr 0.003, mu 0)
+- B nonlinear Centralized         78.84 ± 1.64 /  86.73  F1 0.723  AUC 0.9131  worst 46.28  (lr 0.003, mu 0)
+- B nonlinear FedAvg              79.40 ± 0.49 /  87.11  F1 0.716  AUC 0.8970  worst 48.76  (lr 0.001, mu 0)
+- B nonlinear FedProx             79.95 ± 0.85 /  87.46  F1 0.731  AUC 0.9085  worst 46.81  (lr 0.003, mu 0.1)
+- B nonlinear FedSA-LoRA          79.01 ± 0.52 /  86.36  F1 0.715  AUC 0.8988  worst 48.73  (lr 0.001, mu 0)
+- B nonlinear FFA-LoRA            78.36 ± 0.43 /  86.00  F1 0.723  AUC 0.9017  worst 46.59  (lr 0.003, mu 0)
+- B nonlinear Local-only          78.70 ± 0.32 /  85.37  F1 0.715  AUC 0.9036  worst 47.83  (lr 0.0003, mu 0)
+- B nonlinear Specialty oracle    79.96 ± 0.49 /  86.44  F1 0.728  AUC 0.9133  worst 48.77  (lr 0.0003, mu 0)
+
+## Accuracy at round 100 (mean ± SD over seeds, equal-weight / size-weighted)
+- A linear    Centralized         74.46 ± 0.42 /  76.44  F1 0.656  AUC 0.9365  worst 55.22  (lr 0.001, mu 0)
+- A linear    FedAvg              71.36 ± 0.85 /  73.66  F1 0.612  AUC 0.9263  worst 52.23  (lr 0.001, mu 0)
+- A linear    FedProx             73.07 ± 0.40 /  74.99  F1 0.628  AUC 0.9305  worst 54.25  (lr 0.001, mu 0.1)
+- A linear    FedSA-LoRA          72.57 ± 0.39 /  74.60  F1 0.615  AUC 0.9258  worst 53.81  (lr 0.0003, mu 0)
+- A linear    FedSAA              71.47 ± 0.83 /  73.22  F1 0.607  AUC 0.9256  worst 52.13  (lr 0.003, mu 0)
+- A linear    FedSAA (rho = 0)    73.05 ± 0.30 /  75.10  F1 0.619  AUC 0.9294  worst 54.24  (lr 0.0003, mu 0)
+- A linear    FedSAA-U            73.12 ± 0.28 /  75.21  F1 0.620  AUC 0.9298  worst 54.37  (lr 0.0003, mu 0)
+- A linear    FFA-LoRA            72.34 ± 0.30 /  74.48  F1 0.618  AUC 0.9258  worst 51.89  (lr 0.003, mu 0)
+- A linear    FlexLoRA            73.05 ± 0.23 /  75.10  F1 0.619  AUC 0.9293  worst 54.36  (lr 0.0003, mu 0)
+- A linear    Local-only          71.48 ± 0.32 /  73.19  F1 0.614  AUC 0.9147  worst 50.59  (lr 0.0003, mu 0)
+- A linear    Specialty oracle    73.47 ± 0.32 /  75.32  F1 0.637  AUC 0.9268  worst 53.26  (lr 0.001, mu 0)
+- A none      Linear probe        73.25 ± 0.16 /  75.26  F1 0.625  AUC 0.9267  worst 52.52  (lr 0.003, mu 0)
+- A nonlinear Centralized         74.53 ± 0.67 /  76.50  F1 0.653  AUC 0.9355  worst 55.04  (lr 0.001, mu 0)
+- A nonlinear FedAvg              70.94 ± 0.44 /  73.09  F1 0.588  AUC 0.9191  worst 52.67  (lr 0.0003, mu 0)
+- A nonlinear FedProx             72.27 ± 0.38 /  74.20  F1 0.617  AUC 0.9257  worst 52.16  (lr 0.003, mu 0.1)
+- A nonlinear FedSA-LoRA          72.11 ± 0.71 /  74.11  F1 0.607  AUC 0.9239  worst 53.05  (lr 0.0003, mu 0)
+- A nonlinear FFA-LoRA            72.59 ± 0.46 /  74.58  F1 0.621  AUC 0.9243  worst 52.33  (lr 0.003, mu 0)
+- A nonlinear Local-only          71.66 ± 0.41 /  73.42  F1 0.612  AUC 0.9149  worst 51.49  (lr 0.0003, mu 0)
+- A nonlinear Specialty oracle    74.95 ± 0.28 /  76.72  F1 0.652  AUC 0.9353  worst 55.38  (lr 0.0003, mu 0)
+- B linear    Centralized         80.25 ± 0.71 /  87.36  F1 0.744  AUC 0.9165  worst 51.61  (lr 0.0003, mu 0)
+- B linear    FedAvg              80.45 ± 0.42 /  87.73  F1 0.732  AUC 0.9079  worst 46.04  (lr 0.003, mu 0)
+- B linear    FedProx             80.30 ± 0.33 /  87.68  F1 0.730  AUC 0.9076  worst 45.58  (lr 0.003, mu 0.001)
+- B linear    FedSA-LoRA          80.30 ± 0.55 /  87.50  F1 0.738  AUC 0.9067  worst 45.45  (lr 0.003, mu 0)
+- B linear    FedSAA              79.43 ± 0.36 /  86.30  F1 0.734  AUC 0.9092  worst 46.94  (lr 0.003, mu 0)
+- B linear    FedSAA (rho = 0)    79.88 ± 0.53 /  86.70  F1 0.738  AUC 0.9116  worst 47.01  (lr 0.003, mu 0)
+- B linear    FedSAA-U            80.08 ± 0.37 /  87.15  F1 0.738  AUC 0.9058  worst 51.69  (lr 0.0003, mu 0)
+- B linear    FFA-LoRA            78.71 ± 0.66 /  86.28  F1 0.729  AUC 0.9044  worst 47.05  (lr 0.003, mu 0)
+- B linear    FlexLoRA            80.05 ± 0.36 /  87.69  F1 0.724  AUC 0.9081  worst 45.40  (lr 0.003, mu 0)
+- B linear    Local-only          78.01 ± 0.51 /  85.34  F1 0.718  AUC 0.8977  worst 47.57  (lr 0.0003, mu 0)
+- B linear    Specialty oracle    79.45 ± 0.90 /  87.43  F1 0.740  AUC 0.9163  worst 48.89  (lr 0.003, mu 0)
+- B none      Linear probe        79.10 ± 0.20 /  87.13  F1 0.729  AUC 0.9091  worst 47.42  (lr 0.003, mu 0)
+- B nonlinear Centralized         79.05 ± 1.33 /  86.42  F1 0.730  AUC 0.9071  worst 48.12  (lr 0.003, mu 0)
+- B nonlinear FedAvg              79.83 ± 0.60 /  87.11  F1 0.735  AUC 0.9027  worst 46.16  (lr 0.001, mu 0)
+- B nonlinear FedProx             79.81 ± 0.74 /  87.53  F1 0.737  AUC 0.9102  worst 46.60  (lr 0.003, mu 0.1)
+- B nonlinear FedSA-LoRA          79.07 ± 0.41 /  86.26  F1 0.728  AUC 0.9029  worst 46.57  (lr 0.001, mu 0)
+- B nonlinear FFA-LoRA            78.58 ± 0.54 /  86.26  F1 0.727  AUC 0.9026  worst 48.31  (lr 0.003, mu 0)
+- B nonlinear Local-only          78.08 ± 0.47 /  85.30  F1 0.715  AUC 0.8959  worst 48.65  (lr 0.0003, mu 0)
+- B nonlinear Specialty oracle    80.99 ± 0.47 /  87.72  F1 0.750  AUC 0.9199  worst 50.45  (lr 0.0003, mu 0)
+
+## Accuracy at round 200 (mean ± SD over seeds, equal-weight / size-weighted)
+- A linear    Centralized         73.89 ± 0.44 /  75.88  F1 0.645  AUC 0.9341  worst 55.12  (lr 0.001, mu 0)
+- A linear    FedAvg              71.97 ± 0.58 /  73.95  F1 0.621  AUC 0.9271  worst 52.81  (lr 0.001, mu 0)
+- A linear    FedProx             73.19 ± 0.52 /  74.92  F1 0.630  AUC 0.9300  worst 53.16  (lr 0.001, mu 0.1)
+- A linear    FedSA-LoRA          73.09 ± 0.59 /  75.04  F1 0.626  AUC 0.9284  worst 54.17  (lr 0.0003, mu 0)
+- A linear    FedSAA              72.61 ± 0.41 /  74.28  F1 0.621  AUC 0.9255  worst 51.88  (lr 0.003, mu 0)
+- A linear    FedSAA (rho = 0)    73.70 ± 0.16 /  75.69  F1 0.634  AUC 0.9321  worst 54.13  (lr 0.0003, mu 0)
+- A linear    FedSAA-U            73.66 ± 0.18 /  75.67  F1 0.633  AUC 0.9322  worst 54.01  (lr 0.0003, mu 0)
+- A linear    FFA-LoRA            72.37 ± 0.14 /  74.39  F1 0.620  AUC 0.9246  worst 51.35  (lr 0.003, mu 0)
+- A linear    FlexLoRA            73.67 ± 0.24 /  75.66  F1 0.632  AUC 0.9323  worst 54.28  (lr 0.0003, mu 0)
+- A linear    Local-only          69.91 ± 0.22 /  71.73  F1 0.602  AUC 0.8992  worst 47.94  (lr 0.0003, mu 0)
+- A linear    Specialty oracle    71.89 ± 0.30 /  73.69  F1 0.622  AUC 0.9140  worst 49.92  (lr 0.001, mu 0)
+- A none      Linear probe        72.88 ± 0.14 /  74.75  F1 0.625  AUC 0.9220  worst 50.98  (lr 0.003, mu 0)
+- A nonlinear Centralized         73.99 ± 0.56 /  75.98  F1 0.648  AUC 0.9327  worst 55.56  (lr 0.001, mu 0)
+- A nonlinear FedAvg              72.89 ± 0.44 /  74.80  F1 0.622  AUC 0.9272  worst 54.29  (lr 0.0003, mu 0)
+- A nonlinear FedProx             72.44 ± 0.28 /  74.38  F1 0.620  AUC 0.9227  worst 51.81  (lr 0.003, mu 0.1)
+- A nonlinear FedSA-LoRA          72.76 ± 0.73 /  74.65  F1 0.621  AUC 0.9270  worst 53.84  (lr 0.0003, mu 0)
+- A nonlinear FFA-LoRA            72.40 ± 0.32 /  74.31  F1 0.621  AUC 0.9221  worst 51.05  (lr 0.003, mu 0)
+- A nonlinear Local-only          69.91 ± 0.28 /  71.78  F1 0.600  AUC 0.9004  worst 48.01  (lr 0.0003, mu 0)
+- A nonlinear Specialty oracle    73.82 ± 0.30 /  75.77  F1 0.640  AUC 0.9300  worst 54.49  (lr 0.0003, mu 0)
+- B linear    Centralized         79.46 ± 0.84 /  86.73  F1 0.738  AUC 0.9168  worst 49.48  (lr 0.0003, mu 0)
+- B linear    FedAvg              80.23 ± 0.23 /  87.63  F1 0.733  AUC 0.9087  worst 45.22  (lr 0.003, mu 0)
+- B linear    FedProx             80.37 ± 0.35 /  87.74  F1 0.733  AUC 0.9092  worst 45.44  (lr 0.003, mu 0.001)
+- B linear    FedSA-LoRA          80.11 ± 0.31 /  87.41  F1 0.736  AUC 0.9066  worst 43.79  (lr 0.003, mu 0)
+- B linear    FedSAA              78.90 ± 1.38 /  85.41  F1 0.729  AUC 0.9096  worst 47.69  (lr 0.003, mu 0)
+- B linear    FedSAA (rho = 0)    79.70 ± 0.50 /  86.66  F1 0.735  AUC 0.9117  worst 46.82  (lr 0.003, mu 0)
+- B linear    FedSAA-U            79.94 ± 0.31 /  87.45  F1 0.744  AUC 0.9060  worst 49.78  (lr 0.0003, mu 0)
+- B linear    FFA-LoRA            78.91 ± 0.43 /  86.37  F1 0.733  AUC 0.9040  worst 47.87  (lr 0.003, mu 0)
+- B linear    FlexLoRA            80.23 ± 0.37 /  87.82  F1 0.728  AUC 0.9105  worst 45.66  (lr 0.003, mu 0)
+- B linear    Local-only          77.74 ± 0.47 /  85.12  F1 0.720  AUC 0.8846  worst 47.07  (lr 0.0003, mu 0)
+- B linear    Specialty oracle    78.67 ± 0.80 /  87.26  F1 0.734  AUC 0.9087  worst 47.68  (lr 0.003, mu 0)
+- B none      Linear probe        79.39 ± 0.28 /  86.95  F1 0.734  AUC 0.9082  worst 48.66  (lr 0.003, mu 0)
+- B nonlinear Centralized         78.30 ± 1.24 /  86.02  F1 0.729  AUC 0.8952  worst 44.95  (lr 0.003, mu 0)
+- B nonlinear FedAvg              79.93 ± 0.51 /  86.96  F1 0.742  AUC 0.9048  worst 45.78  (lr 0.001, mu 0)
+- B nonlinear FedProx             79.66 ± 0.57 /  87.50  F1 0.735  AUC 0.9092  worst 47.01  (lr 0.003, mu 0.1)
+- B nonlinear FedSA-LoRA          79.02 ± 0.49 /  86.14  F1 0.729  AUC 0.9040  worst 47.12  (lr 0.001, mu 0)
+- B nonlinear FFA-LoRA            78.70 ± 0.52 /  86.19  F1 0.729  AUC 0.9010  worst 48.32  (lr 0.003, mu 0)
+- B nonlinear Local-only          78.02 ± 0.47 /  85.22  F1 0.722  AUC 0.8895  worst 47.53  (lr 0.0003, mu 0)
+- B nonlinear Specialty oracle    80.46 ± 0.50 /  87.26  F1 0.754  AUC 0.9134  worst 50.53  (lr 0.0003, mu 0)
+
+## Planned seed-level contrasts, accuracy (Holm within the planned family)
+- r40 A linear: centralized − local = +2.34 [+2.14, +2.53], p_t 0.0000, Holm 0.0000, Wilcoxon 0.0020, same sign 10/10
+- r40 A linear: fedprox − fedavg = +2.36 [+1.91, +2.80], p_t 0.0000, Holm 0.0000, Wilcoxon 0.0020, same sign 10/10
+- r40 A linear: fedsaa − fedavg = +1.54 [+0.60, +2.47], p_t 0.0047, Holm 0.0142, Wilcoxon 0.0137, same sign 9/10
+- r40 A linear: fedsaa_u − fedavg = +1.97 [+1.39, +2.55], p_t 0.0000, Holm 0.0002, Wilcoxon 0.0020, same sign 10/10
+- r40 A linear: fedavg − local = -3.75 [-4.40, -3.09], p_t 0.0000, Holm 0.0000, Wilcoxon 0.0020, same sign 10/10
+- r40 A linear: oracle − fedavg = +6.14 [+5.44, +6.83], p_t 0.0000, Holm 0.0000, Wilcoxon 0.0020, same sign 10/10
+- r40 A linear: fedprox − local = -1.39 [-1.79, -0.99], p_t 0.0000, Holm 0.0002, Wilcoxon 0.0020, same sign 10/10
+- r40 A linear: fedsa − local = -2.58 [-2.84, -2.33], p_t 0.0000, Holm 0.0000, Wilcoxon 0.0020, same sign 10/10
+- r40 A linear: fedsaa_r0 − fedsaa = -0.05 [-0.72, +0.62], p_t 0.8734, Holm 0.8734, Wilcoxon 1.0000, same sign 5/10
+- r40 A linear: fedsaa_u − fedsaa = +0.43 [-0.22, +1.09], p_t 0.1682, Holm 0.3363, Wilcoxon 0.1934, same sign 7/10
+- r40 A linear: fedsaa − local = -2.21 [-2.83, -1.59], p_t 0.0000, Holm 0.0002, Wilcoxon 0.0020, same sign 10/10
+- r40 A linear: fedsaa_u − fedsaa_r0 = +0.48 [+0.34, +0.62], p_t 0.0000, Holm 0.0002, Wilcoxon 0.0020, same sign 10/10
+- r40 A linear: fedsaa_r0 − local = -2.26 [-2.49, -2.03], p_t 0.0000, Holm 0.0000, Wilcoxon 0.0020, same sign 10/10
+- r40 A linear: fedsaa_u − flexlora = +0.52 [+0.36, +0.69], p_t 0.0001, Holm 0.0002, Wilcoxon 0.0020, same sign 10/10
+- r40 A linear: fedsaa_u − local = -1.78 [-2.02, -1.53], p_t 0.0000, Holm 0.0000, Wilcoxon 0.0020, same sign 10/10
+- r40 A linear: fedsaa_u − oracle = -4.17 [-4.46, -3.87], p_t 0.0000, Holm 0.0000, Wilcoxon 0.0020, same sign 10/10
+- r40 A linear: ffa − local = -0.85 [-1.09, -0.61], p_t 0.0000, Holm 0.0002, Wilcoxon 0.0020, same sign 10/10
+- r40 A linear: flexlora − local = -2.30 [-2.58, -2.02], p_t 0.0000, Holm 0.0000, Wilcoxon 0.0020, same sign 10/10
+- r40 A linear: oracle − local = +2.39 [+2.14, +2.64], p_t 0.0000, Holm 0.0000, Wilcoxon 0.0020, same sign 10/10
+- r100 A linear: centralized − local = +2.98 [+2.69, +3.26], p_t 0.0000, Holm 0.0000, Wilcoxon 0.0020, same sign 10/10
+- r100 A linear: fedprox − fedavg = +1.71 [+1.28, +2.14], p_t 0.0000, Holm 0.0001, Wilcoxon 0.0020, same sign 10/10
+- r100 A linear: fedsaa − fedavg = +0.11 [-0.51, +0.72], p_t 0.6971, Holm 1.0000, Wilcoxon 0.7695, same sign 5/10
+- r100 A linear: fedsaa_u − fedavg = +1.76 [+1.12, +2.40], p_t 0.0002, Holm 0.0014, Wilcoxon 0.0020, same sign 10/10
+- r100 A linear: fedavg − local = -0.12 [-0.61, +0.36], p_t 0.5780, Holm 1.0000, Wilcoxon 0.5566, same sign 7/10
+- r100 A linear: oracle − fedavg = +2.11 [+1.60, +2.61], p_t 0.0000, Holm 0.0001, Wilcoxon 0.0020, same sign 10/10
+- r100 A linear: fedprox − local = +1.59 [+1.37, +1.80], p_t 0.0000, Holm 0.0000, Wilcoxon 0.0020, same sign 10/10
+- r100 A linear: fedsa − local = +1.09 [+0.73, +1.44], p_t 0.0001, Holm 0.0006, Wilcoxon 0.0020, same sign 10/10
+- r100 A linear: fedsaa_r0 − fedsaa = +1.59 [+0.81, +2.36], p_t 0.0012, Holm 0.0084, Wilcoxon 0.0020, same sign 10/10
+- r100 A linear: fedsaa_u − fedsaa = +1.65 [+0.98, +2.33], p_t 0.0004, Holm 0.0029, Wilcoxon 0.0020, same sign 10/10
+- r100 A linear: fedsaa − local = -0.01 [-0.67, +0.64], p_t 0.9610, Holm 1.0000, Wilcoxon 0.8457, same sign 6/10
+- r100 A linear: fedsaa_u − fedsaa_r0 = +0.07 [-0.14, +0.28], p_t 0.4868, Holm 1.0000, Wilcoxon 0.4922, same sign 6/10
+- r100 A linear: fedsaa_r0 − local = +1.57 [+1.33, +1.81], p_t 0.0000, Holm 0.0000, Wilcoxon 0.0020, same sign 10/10
+- r100 A linear: fedsaa_u − flexlora = +0.07 [-0.15, +0.29], p_t 0.4954, Holm 1.0000, Wilcoxon 0.6250, same sign 6/10
+- r100 A linear: fedsaa_u − local = +1.64 [+1.34, +1.93], p_t 0.0000, Holm 0.0000, Wilcoxon 0.0020, same sign 10/10
+- r100 A linear: fedsaa_u − oracle = -0.35 [-0.68, -0.02], p_t 0.0416, Holm 0.2494, Wilcoxon 0.0488, same sign 8/10
+- r100 A linear: ffa − local = +0.86 [+0.62, +1.10], p_t 0.0000, Holm 0.0002, Wilcoxon 0.0020, same sign 10/10
+- r100 A linear: flexlora − local = +1.57 [+1.32, +1.82], p_t 0.0000, Holm 0.0000, Wilcoxon 0.0020, same sign 10/10
+- r100 A linear: oracle − local = +1.98 [+1.75, +2.22], p_t 0.0000, Holm 0.0000, Wilcoxon 0.0020, same sign 10/10
+- r200 A linear: centralized − local = +3.98 [+3.69, +4.28], p_t 0.0000, Holm 0.0000, Wilcoxon 0.0020, same sign 10/10
+- r200 A linear: fedprox − fedavg = +1.22 [+0.90, +1.54], p_t 0.0000, Holm 0.0001, Wilcoxon 0.0020, same sign 10/10
+- r200 A linear: fedsaa − fedavg = +0.65 [+0.24, +1.05], p_t 0.0054, Holm 0.0218, Wilcoxon 0.0020, same sign 10/10
+- r200 A linear: fedsaa_u − fedavg = +1.69 [+1.23, +2.16], p_t 0.0000, Holm 0.0001, Wilcoxon 0.0020, same sign 10/10
+- r200 A linear: fedavg − local = +2.06 [+1.64, +2.48], p_t 0.0000, Holm 0.0000, Wilcoxon 0.0020, same sign 10/10
+- r200 A linear: oracle − fedavg = -0.07 [-0.56, +0.42], p_t 0.7449, Holm 1.0000, Wilcoxon 0.8457, same sign 6/10
+- r200 A linear: fedprox − local = +3.28 [+2.85, +3.71], p_t 0.0000, Holm 0.0000, Wilcoxon 0.0020, same sign 10/10
+- r200 A linear: fedsa − local = +3.19 [+2.82, +3.55], p_t 0.0000, Holm 0.0000, Wilcoxon 0.0020, same sign 10/10
+- r200 A linear: fedsaa_r0 − fedsaa = +1.08 [+0.74, +1.43], p_t 0.0001, Holm 0.0003, Wilcoxon 0.0020, same sign 10/10
+- r200 A linear: fedsaa_u − fedsaa = +1.05 [+0.78, +1.31], p_t 0.0000, Holm 0.0001, Wilcoxon 0.0020, same sign 10/10
+- r200 A linear: fedsaa − local = +2.71 [+2.37, +3.04], p_t 0.0000, Holm 0.0000, Wilcoxon 0.0020, same sign 10/10
+- r200 A linear: fedsaa_u − fedsaa_r0 = -0.04 [-0.22, +0.15], p_t 0.6756, Holm 1.0000, Wilcoxon 0.5566, same sign 6/10
+- r200 A linear: fedsaa_r0 − local = +3.79 [+3.62, +3.96], p_t 0.0000, Holm 0.0000, Wilcoxon 0.0020, same sign 10/10
+- r200 A linear: fedsaa_u − flexlora = -0.01 [-0.19, +0.17], p_t 0.9145, Holm 1.0000, Wilcoxon 0.8457, same sign 6/10
+- r200 A linear: fedsaa_u − local = +3.75 [+3.55, +3.95], p_t 0.0000, Holm 0.0000, Wilcoxon 0.0020, same sign 10/10
+- r200 A linear: fedsaa_u − oracle = +1.77 [+1.51, +2.02], p_t 0.0000, Holm 0.0000, Wilcoxon 0.0020, same sign 10/10
+- r200 A linear: ffa − local = +2.46 [+2.30, +2.62], p_t 0.0000, Holm 0.0000, Wilcoxon 0.0020, same sign 10/10
+- r200 A linear: flexlora − local = +3.76 [+3.51, +4.01], p_t 0.0000, Holm 0.0000, Wilcoxon 0.0020, same sign 10/10
+- r200 A linear: oracle − local = +1.99 [+1.73, +2.24], p_t 0.0000, Holm 0.0000, Wilcoxon 0.0020, same sign 10/10
+- r40 A nonlinear: centralized − local = +2.38 [+1.97, +2.80], p_t 0.0000, Holm 0.0000, Wilcoxon 0.0020, same sign 10/10
+- r40 A nonlinear: fedprox − fedavg = +5.23 [+4.47, +5.98], p_t 0.0000, Holm 0.0000, Wilcoxon 0.0020, same sign 10/10
+- r40 A nonlinear: fedavg − local = -5.92 [-6.43, -5.41], p_t 0.0000, Holm 0.0000, Wilcoxon 0.0020, same sign 10/10
+- r40 A nonlinear: oracle − fedavg = +7.38 [+6.79, +7.96], p_t 0.0000, Holm 0.0000, Wilcoxon 0.0020, same sign 10/10
+- r40 A nonlinear: fedprox − local = -0.69 [-1.10, -0.28], p_t 0.0041, Holm 0.0082, Wilcoxon 0.0098, same sign 9/10
+- r40 A nonlinear: fedsa − local = -3.34 [-3.72, -2.96], p_t 0.0000, Holm 0.0000, Wilcoxon 0.0020, same sign 10/10
+- r40 A nonlinear: ffa − local = -0.31 [-0.79, +0.17], p_t 0.1761, Holm 0.1761, Wilcoxon 0.1934, same sign 7/10
+- r40 A nonlinear: oracle − local = +1.45 [+1.21, +1.70], p_t 0.0000, Holm 0.0000, Wilcoxon 0.0020, same sign 10/10
+- r100 A nonlinear: centralized − local = +2.87 [+2.48, +3.26], p_t 0.0000, Holm 0.0000, Wilcoxon 0.0020, same sign 10/10
+- r100 A nonlinear: fedprox − fedavg = +1.33 [+0.80, +1.86], p_t 0.0003, Holm 0.0016, Wilcoxon 0.0020, same sign 10/10
+- r100 A nonlinear: fedavg − local = -0.72 [-1.14, -0.30], p_t 0.0039, Holm 0.0116, Wilcoxon 0.0098, same sign 8/10
+- r100 A nonlinear: oracle − fedavg = +4.00 [+3.67, +4.33], p_t 0.0000, Holm 0.0000, Wilcoxon 0.0020, same sign 10/10
+- r100 A nonlinear: fedprox − local = +0.61 [+0.22, +1.01], p_t 0.0065, Holm 0.0131, Wilcoxon 0.0137, same sign 8/10
+- r100 A nonlinear: fedsa − local = +0.44 [-0.06, +0.94], p_t 0.0751, Holm 0.0751, Wilcoxon 0.1055, same sign 8/10
+- r100 A nonlinear: ffa − local = +0.93 [+0.44, +1.41], p_t 0.0018, Holm 0.0074, Wilcoxon 0.0020, same sign 10/10
+- r100 A nonlinear: oracle − local = +3.28 [+3.05, +3.52], p_t 0.0000, Holm 0.0000, Wilcoxon 0.0020, same sign 10/10
+- r200 A nonlinear: centralized − local = +4.08 [+3.58, +4.58], p_t 0.0000, Holm 0.0000, Wilcoxon 0.0020, same sign 10/10
+- r200 A nonlinear: fedprox − fedavg = -0.45 [-0.87, -0.02], p_t 0.0429, Holm 0.0429, Wilcoxon 0.0488, same sign 9/10
+- r200 A nonlinear: fedavg − local = +2.98 [+2.57, +3.38], p_t 0.0000, Holm 0.0000, Wilcoxon 0.0020, same sign 10/10
+- r200 A nonlinear: oracle − fedavg = +0.94 [+0.66, +1.22], p_t 0.0000, Holm 0.0001, Wilcoxon 0.0020, same sign 10/10
+- r200 A nonlinear: fedprox − local = +2.53 [+2.27, +2.79], p_t 0.0000, Holm 0.0000, Wilcoxon 0.0020, same sign 10/10
+- r200 A nonlinear: fedsa − local = +2.85 [+2.26, +3.43], p_t 0.0000, Holm 0.0000, Wilcoxon 0.0020, same sign 10/10
+- r200 A nonlinear: ffa − local = +2.49 [+2.24, +2.74], p_t 0.0000, Holm 0.0000, Wilcoxon 0.0020, same sign 10/10
+- r200 A nonlinear: oracle − local = +3.91 [+3.63, +4.20], p_t 0.0000, Holm 0.0000, Wilcoxon 0.0020, same sign 10/10
+- r40 A linear vs none: linear:local − none:probe = -0.49 [-0.74, -0.23], p_t 0.0022, Holm nan, Wilcoxon 0.0020, same sign 10/10
+- r40 A nonlinear vs none: nonlinear:local − none:probe = -0.78 [-1.07, -0.50], p_t 0.0002, Holm nan, Wilcoxon 0.0020, same sign 10/10
+- r40 A nonlinear vs linear: nonlinear:local − linear:local = -0.30 [-0.51, -0.09], p_t 0.0095, Holm nan, Wilcoxon 0.0137, same sign 9/10
+- r40 A nonlinear vs linear: nonlinear:fedavg − linear:fedavg = -2.47 [-3.08, -1.87], p_t 0.0000, Holm nan, Wilcoxon 0.0020, same sign 10/10
+- r40 A nonlinear vs linear: nonlinear:oracle − linear:oracle = -1.24 [-1.59, -0.88], p_t 0.0000, Holm nan, Wilcoxon 0.0020, same sign 10/10
+- r40 A nonlinear vs linear: nonlinear:centralized − linear:centralized = -0.25 [-0.59, +0.08], p_t 0.1217, Holm nan, Wilcoxon 0.1309, same sign 7/10
+- r100 A linear vs none: linear:local − none:probe = -1.77 [-2.09, -1.45], p_t 0.0000, Holm nan, Wilcoxon 0.0020, same sign 10/10
+- r100 A nonlinear vs none: nonlinear:local − none:probe = -1.59 [-1.96, -1.22], p_t 0.0000, Holm nan, Wilcoxon 0.0020, same sign 10/10
+- r100 A nonlinear vs linear: nonlinear:local − linear:local = +0.18 [-0.07, +0.43], p_t 0.1398, Holm nan, Wilcoxon 0.2324, same sign 8/10
+- r100 A nonlinear vs linear: nonlinear:fedavg − linear:fedavg = -0.42 [-0.85, +0.02], p_t 0.0596, Holm nan, Wilcoxon 0.1309, same sign 6/10
+- r100 A nonlinear vs linear: nonlinear:oracle − linear:oracle = +1.48 [+1.26, +1.70], p_t 0.0000, Holm nan, Wilcoxon 0.0020, same sign 10/10
+- r100 A nonlinear vs linear: nonlinear:centralized − linear:centralized = +0.07 [-0.22, +0.37], p_t 0.5904, Holm nan, Wilcoxon 0.4922, same sign 5/10
+- r200 A linear vs none: linear:local − none:probe = -2.97 [-3.17, -2.77], p_t 0.0000, Holm nan, Wilcoxon 0.0020, same sign 10/10
+- r200 A nonlinear vs none: nonlinear:local − none:probe = -2.97 [-3.23, -2.70], p_t 0.0000, Holm nan, Wilcoxon 0.0020, same sign 10/10
+- r200 A nonlinear vs linear: nonlinear:local − linear:local = +0.00 [-0.26, +0.26], p_t 0.9772, Holm nan, Wilcoxon 0.9219, same sign 6/10
+- r200 A nonlinear vs linear: nonlinear:fedavg − linear:fedavg = +0.92 [+0.40, +1.44], p_t 0.0032, Holm nan, Wilcoxon 0.0098, same sign 8/10
+- r200 A nonlinear vs linear: nonlinear:oracle − linear:oracle = +1.93 [+1.65, +2.21], p_t 0.0000, Holm nan, Wilcoxon 0.0020, same sign 10/10
+- r200 A nonlinear vs linear: nonlinear:centralized − linear:centralized = +0.10 [-0.35, +0.55], p_t 0.6152, Holm nan, Wilcoxon 0.6250, same sign 6/10
+- r40 B linear: centralized − local = +0.64 [+0.16, +1.12], p_t 0.0147, Holm 0.1172, Wilcoxon 0.0059, same sign 9/10
+- r40 B linear: fedprox − fedavg = -0.03 [-0.17, +0.11], p_t 0.6692, Holm 0.9577, Wilcoxon 0.6953, same sign 6/10
+- r40 B linear: fedsaa − fedavg = -0.61 [-1.11, -0.11], p_t 0.0229, Holm 0.1606, Wilcoxon 0.0137, same sign 8/10
+- r40 B linear: fedsaa_u − fedavg = -2.03 [-2.60, -1.45], p_t 0.0000, Holm 0.0004, Wilcoxon 0.0020, same sign 10/10
+- r40 B linear: fedavg − local = +1.11 [+0.58, +1.64], p_t 0.0010, Holm 0.0125, Wilcoxon 0.0039, same sign 9/10
+- r40 B linear: oracle − fedavg = +0.27 [-0.25, +0.79], p_t 0.2756, Holm 0.8269, Wilcoxon 0.2754, same sign 6/10
+- r40 B linear: fedprox − local = +1.09 [+0.57, +1.61], p_t 0.0011, Holm 0.0125, Wilcoxon 0.0039, same sign 9/10
+- r40 B linear: fedsa − local = +1.51 [+0.88, +2.13], p_t 0.0004, Holm 0.0051, Wilcoxon 0.0039, same sign 9/10
+- r40 B linear: fedsaa_r0 − fedsaa = +0.24 [-0.50, +0.99], p_t 0.4788, Holm 0.9577, Wilcoxon 0.7695, same sign 5/10
+- r40 B linear: fedsaa_u − fedsaa = -1.42 [-2.15, -0.69], p_t 0.0017, Holm 0.0170, Wilcoxon 0.0098, same sign 8/10
+- r40 B linear: fedsaa − local = +0.51 [-0.18, +1.20], p_t 0.1314, Holm 0.6571, Wilcoxon 0.2324, same sign 8/10
+- r40 B linear: fedsaa_u − fedsaa_r0 = -1.66 [-1.94, -1.39], p_t 0.0000, Holm 0.0000, Wilcoxon 0.0020, same sign 10/10
+- r40 B linear: fedsaa_r0 − local = +0.75 [+0.32, +1.18], p_t 0.0032, Holm 0.0288, Wilcoxon 0.0020, same sign 10/10
+- r40 B linear: fedsaa_u − flexlora = -1.63 [-2.18, -1.07], p_t 0.0001, Holm 0.0014, Wilcoxon 0.0020, same sign 10/10
+- r40 B linear: fedsaa_u − local = -0.91 [-1.21, -0.61], p_t 0.0001, Holm 0.0011, Wilcoxon 0.0020, same sign 10/10
+- r40 B linear: fedsaa_u − oracle = -2.29 [-2.68, -1.90], p_t 0.0000, Holm 0.0000, Wilcoxon 0.0020, same sign 10/10
+- r40 B linear: ffa − local = -0.26 [-0.69, +0.17], p_t 0.1994, Holm 0.7976, Wilcoxon 0.0840, same sign 9/10
+- r40 B linear: flexlora − local = +0.72 [+0.12, +1.31], p_t 0.0240, Holm 0.1606, Wilcoxon 0.0371, same sign 9/10
+- r40 B linear: oracle − local = +1.38 [+0.90, +1.86], p_t 0.0001, Holm 0.0015, Wilcoxon 0.0020, same sign 10/10
+- r100 B linear: centralized − local = +2.23 [+1.73, +2.74], p_t 0.0000, Holm 0.0001, Wilcoxon 0.0020, same sign 10/10
+- r100 B linear: fedprox − fedavg = -0.15 [-0.54, +0.25], p_t 0.4287, Holm 1.0000, Wilcoxon 0.1602, same sign 7/10
+- r100 B linear: fedsaa − fedavg = -1.02 [-1.34, -0.70], p_t 0.0000, Holm 0.0005, Wilcoxon 0.0020, same sign 10/10
+- r100 B linear: fedsaa_u − fedavg = -0.36 [-0.80, +0.07], p_t 0.0891, Holm 0.4450, Wilcoxon 0.1055, same sign 7/10
+- r100 B linear: fedavg − local = +2.43 [+2.09, +2.78], p_t 0.0000, Holm 0.0000, Wilcoxon 0.0020, same sign 10/10
+- r100 B linear: oracle − fedavg = -1.00 [-1.66, -0.34], p_t 0.0076, Holm 0.0686, Wilcoxon 0.0137, same sign 9/10
+- r100 B linear: fedprox − local = +2.29 [+1.92, +2.65], p_t 0.0000, Holm 0.0000, Wilcoxon 0.0020, same sign 10/10
+- r100 B linear: fedsa − local = +2.29 [+1.73, +2.85], p_t 0.0000, Holm 0.0001, Wilcoxon 0.0020, same sign 10/10
+- r100 B linear: fedsaa_r0 − fedsaa = +0.45 [+0.01, +0.89], p_t 0.0442, Holm 0.2650, Wilcoxon 0.0488, same sign 7/10
+- r100 B linear: fedsaa_u − fedsaa = +0.66 [+0.21, +1.10], p_t 0.0088, Holm 0.0706, Wilcoxon 0.0137, same sign 9/10
+- r100 B linear: fedsaa − local = +1.42 [+1.04, +1.79], p_t 0.0000, Holm 0.0002, Wilcoxon 0.0020, same sign 10/10
+- r100 B linear: fedsaa_u − fedsaa_r0 = +0.20 [-0.27, +0.68], p_t 0.3588, Holm 1.0000, Wilcoxon 0.4316, same sign 6/10
+- r100 B linear: fedsaa_r0 − local = +1.87 [+1.30, +2.43], p_t 0.0000, Holm 0.0005, Wilcoxon 0.0020, same sign 10/10
+- r100 B linear: fedsaa_u − flexlora = +0.03 [-0.30, +0.37], p_t 0.8200, Holm 1.0000, Wilcoxon 1.0000, same sign 6/10
+- r100 B linear: fedsaa_u − local = +2.07 [+1.63, +2.51], p_t 0.0000, Holm 0.0000, Wilcoxon 0.0020, same sign 10/10
+- r100 B linear: fedsaa_u − oracle = +0.64 [-0.12, +1.39], p_t 0.0890, Holm 0.4450, Wilcoxon 0.1309, same sign 6/10
+- r100 B linear: ffa − local = +0.69 [+0.14, +1.25], p_t 0.0195, Holm 0.1368, Wilcoxon 0.0273, same sign 8/10
+- r100 B linear: flexlora − local = +2.04 [+1.43, +2.64], p_t 0.0000, Holm 0.0004, Wilcoxon 0.0020, same sign 10/10
+- r100 B linear: oracle − local = +1.43 [+0.75, +2.12], p_t 0.0010, Holm 0.0102, Wilcoxon 0.0039, same sign 9/10
+- r200 B linear: centralized − local = +1.72 [+1.09, +2.35], p_t 0.0002, Holm 0.0019, Wilcoxon 0.0020, same sign 10/10
+- r200 B linear: fedprox − fedavg = +0.14 [-0.23, +0.50], p_t 0.4198, Holm 0.5210, Wilcoxon 0.4316, same sign 6/10
+- r200 B linear: fedsaa − fedavg = -1.33 [-2.33, -0.33], p_t 0.0151, Holm 0.1137, Wilcoxon 0.0020, same sign 10/10
+- r200 B linear: fedsaa_u − fedavg = -0.30 [-0.52, -0.08], p_t 0.0142, Holm 0.1137, Wilcoxon 0.0273, same sign 7/10
+- r200 B linear: fedavg − local = +2.50 [+2.03, +2.97], p_t 0.0000, Holm 0.0000, Wilcoxon 0.0020, same sign 10/10
+- r200 B linear: oracle − fedavg = -1.56 [-2.09, -1.03], p_t 0.0001, Holm 0.0011, Wilcoxon 0.0020, same sign 10/10
+- r200 B linear: fedprox − local = +2.64 [+2.34, +2.93], p_t 0.0000, Holm 0.0000, Wilcoxon 0.0020, same sign 10/10
+- r200 B linear: fedsa − local = +2.37 [+2.05, +2.70], p_t 0.0000, Holm 0.0000, Wilcoxon 0.0020, same sign 10/10
+- r200 B linear: fedsaa_r0 − fedsaa = +0.80 [-0.18, +1.78], p_t 0.0993, Holm 0.3971, Wilcoxon 0.0840, same sign 7/10
+- r200 B linear: fedsaa_u − fedsaa = +1.03 [+0.06, +2.01], p_t 0.0406, Holm 0.2029, Wilcoxon 0.0195, same sign 8/10
+- r200 B linear: fedsaa − local = +1.17 [+0.16, +2.18], p_t 0.0282, Holm 0.1694, Wilcoxon 0.0488, same sign 9/10
+- r200 B linear: fedsaa_u − fedsaa_r0 = +0.23 [-0.21, +0.68], p_t 0.2605, Holm 0.5210, Wilcoxon 0.2324, same sign 6/10
+- r200 B linear: fedsaa_r0 − local = +1.96 [+1.56, +2.37], p_t 0.0000, Holm 0.0000, Wilcoxon 0.0020, same sign 10/10
+- r200 B linear: fedsaa_u − flexlora = -0.29 [-0.68, +0.10], p_t 0.1266, Holm 0.3971, Wilcoxon 0.1934, same sign 6/10
+- r200 B linear: fedsaa_u − local = +2.20 [+1.74, +2.66], p_t 0.0000, Holm 0.0000, Wilcoxon 0.0020, same sign 10/10
+- r200 B linear: fedsaa_u − oracle = +1.26 [+0.59, +1.93], p_t 0.0021, Holm 0.0208, Wilcoxon 0.0039, same sign 9/10
+- r200 B linear: ffa − local = +1.18 [+0.86, +1.49], p_t 0.0000, Holm 0.0002, Wilcoxon 0.0020, same sign 10/10
+- r200 B linear: flexlora − local = +2.49 [+2.00, +2.99], p_t 0.0000, Holm 0.0000, Wilcoxon 0.0020, same sign 10/10
+- r200 B linear: oracle − local = +0.94 [+0.26, +1.62], p_t 0.0125, Holm 0.1129, Wilcoxon 0.0195, same sign 8/10
+- r40 B nonlinear: centralized − local = +0.13 [-1.13, +1.39], p_t 0.8198, Holm 0.8198, Wilcoxon 0.9219, same sign 6/10
+- r40 B nonlinear: fedprox − fedavg = +0.55 [-0.10, +1.19], p_t 0.0883, Holm 0.1766, Wilcoxon 0.1602, same sign 6/10
+- r40 B nonlinear: fedavg − local = +0.70 [+0.34, +1.05], p_t 0.0016, Holm 0.0095, Wilcoxon 0.0020, same sign 10/10
+- r40 B nonlinear: oracle − fedavg = +0.56 [+0.06, +1.06], p_t 0.0332, Holm 0.1327, Wilcoxon 0.0371, same sign 7/10
+- r40 B nonlinear: fedprox − local = +1.25 [+0.69, +1.80], p_t 0.0006, Holm 0.0045, Wilcoxon 0.0020, same sign 10/10
+- r40 B nonlinear: fedsa − local = +0.30 [-0.01, +0.62], p_t 0.0588, Holm 0.1763, Wilcoxon 0.0645, same sign 8/10
+- r40 B nonlinear: ffa − local = -0.35 [-0.59, -0.11], p_t 0.0096, Holm 0.0478, Wilcoxon 0.0195, same sign 9/10
+- r40 B nonlinear: oracle − local = +1.26 [+0.92, +1.60], p_t 0.0000, Holm 0.0001, Wilcoxon 0.0020, same sign 10/10
+- r100 B nonlinear: centralized − local = +0.97 [+0.18, +1.76], p_t 0.0213, Holm 0.0547, Wilcoxon 0.0273, same sign 9/10
+- r100 B nonlinear: fedprox − fedavg = -0.02 [-0.73, +0.68], p_t 0.9438, Holm 0.9438, Wilcoxon 0.7695, same sign 6/10
+- r100 B nonlinear: fedavg − local = +1.76 [+1.24, +2.28], p_t 0.0000, Holm 0.0002, Wilcoxon 0.0020, same sign 10/10
+- r100 B nonlinear: oracle − fedavg = +1.15 [+0.56, +1.75], p_t 0.0017, Holm 0.0068, Wilcoxon 0.0020, same sign 10/10
+- r100 B nonlinear: fedprox − local = +1.74 [+1.17, +2.31], p_t 0.0001, Holm 0.0004, Wilcoxon 0.0020, same sign 10/10
+- r100 B nonlinear: fedsa − local = +0.99 [+0.53, +1.45], p_t 0.0009, Holm 0.0044, Wilcoxon 0.0020, same sign 10/10
+- r100 B nonlinear: ffa − local = +0.50 [+0.11, +0.90], p_t 0.0182, Holm 0.0547, Wilcoxon 0.0371, same sign 8/10
+- r100 B nonlinear: oracle − local = +2.91 [+2.47, +3.36], p_t 0.0000, Holm 0.0000, Wilcoxon 0.0020, same sign 10/10
+- r200 B nonlinear: centralized − local = +0.29 [-0.36, +0.93], p_t 0.3364, Holm 0.5326, Wilcoxon 0.3223, same sign 6/10
+- r200 B nonlinear: fedprox − fedavg = -0.27 [-0.78, +0.25], p_t 0.2663, Holm 0.5326, Wilcoxon 0.2754, same sign 6/10
+- r200 B nonlinear: fedavg − local = +1.91 [+1.46, +2.36], p_t 0.0000, Holm 0.0000, Wilcoxon 0.0020, same sign 10/10
+- r200 B nonlinear: oracle − fedavg = +0.54 [+0.02, +1.05], p_t 0.0428, Holm 0.1285, Wilcoxon 0.0645, same sign 7/10
+- r200 B nonlinear: fedprox − local = +1.64 [+1.06, +2.23], p_t 0.0001, Holm 0.0008, Wilcoxon 0.0020, same sign 10/10
+- r200 B nonlinear: fedsa − local = +1.00 [+0.48, +1.52], p_t 0.0018, Holm 0.0090, Wilcoxon 0.0039, same sign 9/10
+- r200 B nonlinear: ffa − local = +0.68 [+0.27, +1.10], p_t 0.0046, Holm 0.0186, Wilcoxon 0.0098, same sign 9/10
+- r200 B nonlinear: oracle − local = +2.45 [+1.82, +3.08], p_t 0.0000, Holm 0.0001, Wilcoxon 0.0020, same sign 10/10
+- r40 B linear vs none: linear:local − none:probe = -0.04 [-0.28, +0.20], p_t 0.7209, Holm nan, Wilcoxon 0.9219, same sign 5/10
+- r40 B nonlinear vs none: nonlinear:local − none:probe = -0.21 [-0.53, +0.10], p_t 0.1615, Holm nan, Wilcoxon 0.2754, same sign 6/10
+- r40 B nonlinear vs linear: nonlinear:local − linear:local = -0.18 [-0.36, +0.01], p_t 0.0560, Holm nan, Wilcoxon 0.0645, same sign 8/10
+- r40 B nonlinear vs linear: nonlinear:fedavg − linear:fedavg = -0.59 [-1.14, -0.03], p_t 0.0398, Holm nan, Wilcoxon 0.0371, same sign 8/10
+- r40 B nonlinear vs linear: nonlinear:oracle − linear:oracle = -0.30 [-0.93, +0.33], p_t 0.3117, Holm nan, Wilcoxon 0.2324, same sign 8/10
+- r40 B nonlinear vs linear: nonlinear:centralized − linear:centralized = -0.68 [-1.68, +0.31], p_t 0.1541, Holm nan, Wilcoxon 0.2324, same sign 5/10
+- r100 B linear vs none: linear:local − none:probe = -1.08 [-1.44, -0.73], p_t 0.0001, Holm nan, Wilcoxon 0.0020, same sign 10/10
+- r100 B nonlinear vs none: nonlinear:local − none:probe = -1.02 [-1.34, -0.71], p_t 0.0000, Holm nan, Wilcoxon 0.0020, same sign 10/10
+- r100 B nonlinear vs linear: nonlinear:local − linear:local = +0.06 [-0.34, +0.46], p_t 0.7381, Holm nan, Wilcoxon 0.7695, same sign 5/10
+- r100 B nonlinear vs linear: nonlinear:fedavg − linear:fedavg = -0.61 [-1.22, -0.01], p_t 0.0460, Holm nan, Wilcoxon 0.0371, same sign 8/10
+- r100 B nonlinear vs linear: nonlinear:oracle − linear:oracle = +1.54 [+0.74, +2.34], p_t 0.0019, Holm nan, Wilcoxon 0.0020, same sign 10/10
+- r100 B nonlinear vs linear: nonlinear:centralized − linear:centralized = -1.20 [-2.06, -0.34], p_t 0.0114, Holm nan, Wilcoxon 0.0195, same sign 9/10
+- r200 B linear vs none: linear:local − none:probe = -1.65 [-2.13, -1.18], p_t 0.0000, Holm nan, Wilcoxon 0.0020, same sign 10/10
+- r200 B nonlinear vs none: nonlinear:local − none:probe = -1.37 [-1.82, -0.92], p_t 0.0001, Holm nan, Wilcoxon 0.0020, same sign 10/10
+- r200 B nonlinear vs linear: nonlinear:local − linear:local = +0.28 [-0.15, +0.71], p_t 0.1761, Holm nan, Wilcoxon 0.3223, same sign 5/10
+- r200 B nonlinear vs linear: nonlinear:fedavg − linear:fedavg = -0.31 [-0.71, +0.10], p_t 0.1186, Holm nan, Wilcoxon 0.1309, same sign 6/10
+- r200 B nonlinear vs linear: nonlinear:oracle − linear:oracle = +1.79 [+1.12, +2.46], p_t 0.0002, Holm nan, Wilcoxon 0.0020, same sign 10/10
+- r200 B nonlinear vs linear: nonlinear:centralized − linear:centralized = -1.15 [-1.96, -0.34], p_t 0.0108, Holm nan, Wilcoxon 0.0137, same sign 8/10
+
+## Image-level contrasts (per-image correctness averaged over seeds)
+- r40 A linear: fedavg − local = -3.75 [-4.25, -3.23], p 0.000, Holm 0.000
+- r100 A linear: fedavg − local = -0.12 [-0.64, +0.39], p 0.645, Holm 1.000
+- r200 A linear: fedavg − local = +2.06 [+1.48, +2.64], p 0.000, Holm 0.000
+- r40 A linear: fedprox − local = -1.39 [-1.86, -0.97], p 0.000, Holm 0.000
+- r100 A linear: fedprox − local = +1.59 [+1.08, +2.13], p 0.000, Holm 0.000
+- r200 A linear: fedprox − local = +3.28 [+2.67, +3.80], p 0.000, Holm 0.000
+- r40 A linear: oracle − local = +2.39 [+1.99, +2.78], p 0.000, Holm 0.000
+- r100 A linear: oracle − local = +1.98 [+1.58, +2.40], p 0.000, Holm 0.000
+- r200 A linear: oracle − local = +1.99 [+1.57, +2.37], p 0.000, Holm 0.000
+- r40 A linear: flexlora − local = -2.30 [-2.80, -1.78], p 0.000, Holm 0.000
+- r100 A linear: flexlora − local = +1.57 [+0.99, +2.16], p 0.000, Holm 0.000
+- r200 A linear: flexlora − local = +3.76 [+3.10, +4.43], p 0.000, Holm 0.000
+- r40 A linear: ffa − local = -0.85 [-1.24, -0.45], p 0.000, Holm 0.000
+- r100 A linear: ffa − local = +0.86 [+0.41, +1.30], p 0.000, Holm 0.000
+- r200 A linear: ffa − local = +2.46 [+1.94, +2.99], p 0.000, Holm 0.000
+- r40 A linear: fedsa − local = -2.58 [-2.98, -2.15], p 0.000, Holm 0.000
+- r100 A linear: fedsa − local = +1.09 [+0.59, +1.60], p 0.000, Holm 0.000
+- r200 A linear: fedsa − local = +3.19 [+2.59, +3.76], p 0.000, Holm 0.000
+- r40 A linear: fedsaa − local = -2.21 [-2.63, -1.80], p 0.000, Holm 0.000
+- r100 A linear: fedsaa − local = -0.01 [-0.48, +0.46], p 0.944, Holm 1.000
+- r200 A linear: fedsaa − local = +2.71 [+2.18, +3.23], p 0.000, Holm 0.000
+- r40 A linear: fedsaa_r0 − local = -2.26 [-2.78, -1.74], p 0.000, Holm 0.000
+- r100 A linear: fedsaa_r0 − local = +1.57 [+1.03, +2.14], p 0.000, Holm 0.000
+- r200 A linear: fedsaa_r0 − local = +3.79 [+3.14, +4.40], p 0.000, Holm 0.000
+- r40 A linear: fedsaa_u − local = -1.78 [-2.24, -1.26], p 0.000, Holm 0.000
+- r100 A linear: fedsaa_u − local = +1.64 [+1.07, +2.20], p 0.000, Holm 0.000
+- r200 A linear: fedsaa_u − local = +3.75 [+3.12, +4.36], p 0.000, Holm 0.000
+- r40 A linear: centralized − local = +2.34 [+1.90, +2.77], p 0.000, Holm 0.000
+- r100 A linear: centralized − local = +2.98 [+2.42, +3.50], p 0.000, Holm 0.000
+- r200 A linear: centralized − local = +3.98 [+3.38, +4.61], p 0.000, Holm 0.000
+- r40 A linear: fedsaa − fedavg = +1.54 [+1.18, +1.91], p 0.000, Holm 0.000
+- r100 A linear: fedsaa − fedavg = +0.11 [-0.22, +0.47], p 0.552, Holm 1.000
+- r200 A linear: fedsaa − fedavg = +0.65 [+0.25, +1.04], p 0.002, Holm 0.008
+- r40 A linear: fedsaa_u − fedavg = +1.97 [+1.51, +2.41], p 0.000, Holm 0.000
+- r100 A linear: fedsaa_u − fedavg = +1.76 [+1.37, +2.18], p 0.000, Holm 0.000
+- r200 A linear: fedsaa_u − fedavg = +1.69 [+1.28, +2.11], p 0.000, Holm 0.000
+- r40 A linear: fedsaa_u − fedsaa = +0.43 [+0.01, +0.86], p 0.045, Holm 0.090
+- r100 A linear: fedsaa_u − fedsaa = +1.65 [+1.21, +2.10], p 0.000, Holm 0.000
+- r200 A linear: fedsaa_u − fedsaa = +1.05 [+0.63, +1.44], p 0.000, Holm 0.000
+- r40 A linear: fedsaa_r0 − fedsaa = -0.05 [-0.50, +0.40], p 0.839, Holm 0.839
+- r100 A linear: fedsaa_r0 − fedsaa = +1.59 [+1.13, +2.02], p 0.000, Holm 0.000
+- r200 A linear: fedsaa_r0 − fedsaa = +1.08 [+0.67, +1.47], p 0.000, Holm 0.000
+- r40 A linear: fedsaa_u − fedsaa_r0 = +0.48 [+0.35, +0.61], p 0.000, Holm 0.000
+- r100 A linear: fedsaa_u − fedsaa_r0 = +0.07 [-0.05, +0.17], p 0.226, Holm 1.000
+- r200 A linear: fedsaa_u − fedsaa_r0 = -0.04 [-0.17, +0.08], p 0.549, Holm 1.000
+- r40 A linear: fedsaa_u − flexlora = +0.52 [+0.38, +0.67], p 0.000, Holm 0.000
+- r100 A linear: fedsaa_u − flexlora = +0.07 [-0.07, +0.19], p 0.298, Holm 1.000
+- r200 A linear: fedsaa_u − flexlora = -0.01 [-0.14, +0.12], p 0.895, Holm 1.000
+- r40 A linear: oracle − fedavg = +6.14 [+5.58, +6.73], p 0.000, Holm 0.000
+- r100 A linear: oracle − fedavg = +2.11 [+1.58, +2.63], p 0.000, Holm 0.000
+- r200 A linear: oracle − fedavg = -0.07 [-0.63, +0.50], p 0.782, Holm 1.000
+- r40 A linear: fedsaa_u − oracle = -4.17 [-4.75, -3.59], p 0.000, Holm 0.000
+- r100 A linear: fedsaa_u − oracle = -0.35 [-0.92, +0.19], p 0.213, Holm 1.000
+- r200 A linear: fedsaa_u − oracle = +1.77 [+1.22, +2.37], p 0.000, Holm 0.000
+- r40 A linear: fedprox − fedavg = +2.36 [+2.09, +2.64], p 0.000, Holm 0.000
+- r100 A linear: fedprox − fedavg = +1.71 [+1.48, +1.95], p 0.000, Holm 0.000
+- r200 A linear: fedprox − fedavg = +1.22 [+1.00, +1.43], p 0.000, Holm 0.000
+- r40 A nonlinear: fedavg − local = -5.92 [-6.47, -5.35], p 0.000, Holm 0.000
+- r100 A nonlinear: fedavg − local = -0.72 [-1.24, -0.21], p 0.011, Holm 0.022
+- r200 A nonlinear: fedavg − local = +2.98 [+2.43, +3.49], p 0.000, Holm 0.000
+- r40 A nonlinear: fedprox − local = -0.69 [-1.04, -0.34], p 0.000, Holm 0.000
+- r100 A nonlinear: fedprox − local = +0.61 [+0.22, +1.00], p 0.002, Holm 0.006
+- r200 A nonlinear: fedprox − local = +2.53 [+2.11, +2.98], p 0.000, Holm 0.000
+- r40 A nonlinear: oracle − local = +1.45 [+1.15, +1.73], p 0.000, Holm 0.000
+- r100 A nonlinear: oracle − local = +3.28 [+2.89, +3.73], p 0.000, Holm 0.000
+- r200 A nonlinear: oracle − local = +3.91 [+3.45, +4.40], p 0.000, Holm 0.000
+- r40 A nonlinear: ffa − local = -0.31 [-0.70, +0.05], p 0.112, Holm 0.112
+- r100 A nonlinear: ffa − local = +0.93 [+0.50, +1.34], p 0.000, Holm 0.000
+- r200 A nonlinear: ffa − local = +2.49 [+2.03, +2.95], p 0.000, Holm 0.000
+- r40 A nonlinear: fedsa − local = -3.34 [-3.77, -2.94], p 0.000, Holm 0.000
+- r100 A nonlinear: fedsa − local = +0.44 [+0.00, +0.94], p 0.056, Holm 0.056
+- r200 A nonlinear: fedsa − local = +2.85 [+2.37, +3.34], p 0.000, Holm 0.000
+- r40 A nonlinear: centralized − local = +2.38 [+1.96, +2.81], p 0.000, Holm 0.000
+- r100 A nonlinear: centralized − local = +2.87 [+2.39, +3.36], p 0.000, Holm 0.000
+- r200 A nonlinear: centralized − local = +4.08 [+3.57, +4.60], p 0.000, Holm 0.000
+- r40 A nonlinear: oracle − fedavg = +7.38 [+6.79, +7.94], p 0.000, Holm 0.000
+- r100 A nonlinear: oracle − fedavg = +4.00 [+3.46, +4.53], p 0.000, Holm 0.000
+- r200 A nonlinear: oracle − fedavg = +0.94 [+0.44, +1.39], p 0.000, Holm 0.000
+- r40 A nonlinear: fedprox − fedavg = +5.23 [+4.74, +5.77], p 0.000, Holm 0.000
+- r100 A nonlinear: fedprox − fedavg = +1.33 [+0.89, +1.77], p 0.000, Holm 0.000
+- r200 A nonlinear: fedprox − fedavg = -0.45 [-0.93, +0.01], p 0.047, Holm 0.047
+- r40 B linear: fedavg − local = +1.11 [-0.17, +2.36], p 0.081, Holm 0.972
+- r100 B linear: fedavg − local = +2.43 [+1.20, +3.73], p 0.000, Holm 0.000
+- r200 B linear: fedavg − local = +2.50 [+1.12, +3.78], p 0.000, Holm 0.000
+- r40 B linear: fedprox − local = +1.09 [-0.15, +2.31], p 0.093, Holm 1.000
+- r100 B linear: fedprox − local = +2.29 [+0.90, +3.57], p 0.000, Holm 0.000
+- r200 B linear: fedprox − local = +2.64 [+1.23, +3.87], p 0.000, Holm 0.000
+- r40 B linear: oracle − local = +1.38 [+0.44, +2.24], p 0.001, Holm 0.015
+- r100 B linear: oracle − local = +1.43 [+0.73, +2.28], p 0.000, Holm 0.000
+- r200 B linear: oracle − local = +0.94 [+0.23, +1.68], p 0.012, Holm 0.121
+- r40 B linear: flexlora − local = +0.72 [-0.45, +1.94], p 0.259, Holm 1.000
+- r100 B linear: flexlora − local = +2.04 [+0.78, +3.36], p 0.003, Holm 0.036
+- r200 B linear: flexlora − local = +2.49 [+1.08, +3.85], p 0.001, Holm 0.014
+- r40 B linear: ffa − local = -0.26 [-0.88, +0.34], p 0.408, Holm 1.000
+- r100 B linear: ffa − local = +0.69 [-0.08, +1.43], p 0.083, Holm 0.747
+- r200 B linear: ffa − local = +1.18 [+0.33, +2.05], p 0.005, Holm 0.065
+- r40 B linear: fedsa − local = +1.51 [+0.36, +2.63], p 0.017, Holm 0.221
+- r100 B linear: fedsa − local = +2.29 [+1.15, +3.42], p 0.000, Holm 0.000
+- r200 B linear: fedsa − local = +2.37 [+1.15, +3.65], p 0.000, Holm 0.000
+- r40 B linear: fedsaa − local = +0.51 [-0.47, +1.45], p 0.296, Holm 1.000
+- r100 B linear: fedsaa − local = +1.42 [+0.37, +2.44], p 0.010, Holm 0.110
+- r200 B linear: fedsaa − local = +1.17 [+0.09, +2.39], p 0.037, Holm 0.204
+- r40 B linear: fedsaa_r0 − local = +0.75 [-0.30, +1.77], p 0.134, Holm 1.000
+- r100 B linear: fedsaa_r0 − local = +1.87 [+0.84, +2.98], p 0.000, Holm 0.000
+- r200 B linear: fedsaa_r0 − local = +1.96 [+0.85, +3.10], p 0.000, Holm 0.000
+- r40 B linear: fedsaa_u − local = -0.91 [-2.11, +0.31], p 0.116, Holm 1.000
+- r100 B linear: fedsaa_u − local = +2.07 [+0.90, +3.15], p 0.000, Holm 0.000
+- r200 B linear: fedsaa_u − local = +2.20 [+0.93, +3.41], p 0.000, Holm 0.000
+- r40 B linear: centralized − local = +0.64 [-0.50, +1.80], p 0.303, Holm 1.000
+- r100 B linear: centralized − local = +2.23 [+0.97, +3.52], p 0.000, Holm 0.000
+- r200 B linear: centralized − local = +1.72 [+0.41, +3.09], p 0.011, Holm 0.121
+- r40 B linear: fedsaa − fedavg = -0.61 [-1.39, +0.24], p 0.183, Holm 1.000
+- r100 B linear: fedsaa − fedavg = -1.02 [-1.92, -0.05], p 0.031, Holm 0.310
+- r200 B linear: fedsaa − fedavg = -1.33 [-2.24, -0.39], p 0.007, Holm 0.084
+- r40 B linear: fedsaa_u − fedavg = -2.03 [-3.05, -1.04], p 0.000, Holm 0.000
+- r100 B linear: fedsaa_u − fedavg = -0.36 [-1.54, +0.74], p 0.539, Holm 1.000
+- r200 B linear: fedsaa_u − fedavg = -0.30 [-1.50, +0.90], p 0.634, Holm 1.000
+- r40 B linear: fedsaa_u − fedsaa = -1.42 [-2.26, -0.59], p 0.000, Holm 0.000
+- r100 B linear: fedsaa_u − fedsaa = +0.66 [-0.13, +1.45], p 0.103, Holm 0.824
+- r200 B linear: fedsaa_u − fedsaa = +1.03 [+0.15, +1.87], p 0.022, Holm 0.189
+- r40 B linear: fedsaa_r0 − fedsaa = +0.24 [-0.36, +0.90], p 0.468, Holm 1.000
+- r100 B linear: fedsaa_r0 − fedsaa = +0.45 [-0.19, +1.13], p 0.194, Holm 0.970
+- r200 B linear: fedsaa_r0 − fedsaa = +0.80 [+0.11, +1.44], p 0.021, Holm 0.189
+- r40 B linear: fedsaa_u − fedsaa_r0 = -1.66 [-2.61, -0.71], p 0.001, Holm 0.015
+- r100 B linear: fedsaa_u − fedsaa_r0 = +0.20 [-0.54, +1.01], p 0.622, Holm 1.000
+- r200 B linear: fedsaa_u − fedsaa_r0 = +0.23 [-0.79, +1.19], p 0.641, Holm 1.000
+- r40 B linear: fedsaa_u − flexlora = -1.63 [-2.65, -0.67], p 0.000, Holm 0.000
+- r100 B linear: fedsaa_u − flexlora = +0.03 [-1.14, +1.28], p 0.948, Holm 1.000
+- r200 B linear: fedsaa_u − flexlora = -0.29 [-1.54, +0.91], p 0.672, Holm 1.000
+- r40 B linear: oracle − fedavg = +0.27 [-1.11, +1.54], p 0.700, Holm 1.000
+- r100 B linear: oracle − fedavg = -1.00 [-2.29, +0.31], p 0.161, Holm 0.966
+- r200 B linear: oracle − fedavg = -1.56 [-2.94, -0.25], p 0.034, Holm 0.204
+- r40 B linear: fedsaa_u − oracle = -2.29 [-3.60, -1.00], p 0.000, Holm 0.000
+- r100 B linear: fedsaa_u − oracle = +0.64 [-0.37, +1.78], p 0.261, Holm 1.000
+- r200 B linear: fedsaa_u − oracle = +1.26 [+0.09, +2.36], p 0.027, Holm 0.189
+- r40 B linear: fedprox − fedavg = -0.03 [-0.25, +0.19], p 0.805, Holm 1.000
+- r100 B linear: fedprox − fedavg = -0.15 [-0.34, +0.05], p 0.129, Holm 0.903
+- r200 B linear: fedprox − fedavg = +0.14 [-0.08, +0.36], p 0.231, Holm 0.924
+- r40 B nonlinear: fedavg − local = +0.70 [-0.42, +1.84], p 0.231, Holm 1.000
+- r100 B nonlinear: fedavg − local = +1.76 [+0.76, +2.78], p 0.002, Holm 0.012
+- r200 B nonlinear: fedavg − local = +1.91 [+0.94, +2.91], p 0.000, Holm 0.000
+- r40 B nonlinear: fedprox − local = +1.25 [+0.36, +2.14], p 0.003, Holm 0.021
+- r100 B nonlinear: fedprox − local = +1.74 [+0.79, +2.53], p 0.000, Holm 0.000
+- r200 B nonlinear: fedprox − local = +1.64 [+0.84, +2.46], p 0.000, Holm 0.000
+- r40 B nonlinear: oracle − local = +1.26 [+0.53, +2.02], p 0.001, Holm 0.008
+- r100 B nonlinear: oracle − local = +2.91 [+1.89, +3.99], p 0.000, Holm 0.000
+- r200 B nonlinear: oracle − local = +2.45 [+1.37, +3.45], p 0.000, Holm 0.000
+- r40 B nonlinear: ffa − local = -0.35 [-0.95, +0.23], p 0.295, Holm 1.000
+- r100 B nonlinear: ffa − local = +0.50 [-0.21, +1.24], p 0.164, Holm 0.351
+- r200 B nonlinear: ffa − local = +0.68 [-0.09, +1.40], p 0.062, Holm 0.248
+- r40 B nonlinear: fedsa − local = +0.30 [-0.59, +1.21], p 0.507, Holm 1.000
+- r100 B nonlinear: fedsa − local = +0.99 [+0.04, +1.97], p 0.046, Holm 0.230
+- r200 B nonlinear: fedsa − local = +1.00 [+0.12, +1.92], p 0.030, Holm 0.150
+- r40 B nonlinear: centralized − local = +0.13 [-0.95, +1.32], p 0.830, Holm 1.000
+- r100 B nonlinear: centralized − local = +0.97 [-0.11, +2.13], p 0.117, Holm 0.351
+- r200 B nonlinear: centralized − local = +0.29 [-0.91, +1.46], p 0.647, Holm 0.990
+- r40 B nonlinear: oracle − fedavg = +0.56 [-0.41, +1.59], p 0.300, Holm 1.000
+- r100 B nonlinear: oracle − fedavg = +1.15 [-0.07, +2.35], p 0.051, Holm 0.230
+- r200 B nonlinear: oracle − fedavg = +0.54 [-0.50, +1.70], p 0.330, Holm 0.990
+- r40 B nonlinear: fedprox − fedavg = +0.55 [-0.16, +1.30], p 0.135, Holm 0.810
+- r100 B nonlinear: fedprox − fedavg = -0.02 [-0.72, +0.65], p 0.958, Holm 0.958
+- r200 B nonlinear: fedprox − fedavg = -0.27 [-0.96, +0.46], p 0.477, Holm 0.990
+
+## Convergence
+- A linear Centralized: final 73.89, peak 74.96 at round 52, slope over last 20 rounds -0.0086/round
+- A linear FedAvg: final 71.97, peak 72.02 at round 190, slope over last 20 rounds +0.0036/round
+- A linear FedProx: final 73.19, peak 73.29 at round 139, slope over last 20 rounds +0.0020/round
+- A linear FedSA-LoRA: final 73.09, peak 73.13 at round 192, slope over last 20 rounds +0.0009/round
+- A linear FedSAA: final 72.61, peak 72.70 at round 199, slope over last 20 rounds +0.0050/round
+- A linear FedSAA (rho = 0): final 73.70, peak 73.70 at round 188, slope over last 20 rounds +0.0015/round
+- A linear FedSAA-U: final 73.66, peak 73.71 at round 172, slope over last 20 rounds +0.0030/round
+- A linear FFA-LoRA: final 72.37, peak 72.52 at round 188, slope over last 20 rounds -0.0026/round
+- A linear FlexLoRA: final 73.67, peak 73.70 at round 189, slope over last 20 rounds -0.0017/round
+- A linear Local-only: final 69.91, peak 72.82 at round 56, slope over last 20 rounds -0.0077/round
+- A linear Specialty oracle: final 71.89, peak 75.06 at round 27, slope over last 20 rounds -0.0113/round
+- A none Linear probe: final 72.88, peak 73.40 at round 76, slope over last 20 rounds -0.0034/round
+- A nonlinear Centralized: final 73.99, peak 74.96 at round 83, slope over last 20 rounds -0.0077/round
+- A nonlinear FedAvg: final 72.89, peak 72.89 at round 200, slope over last 20 rounds +0.0110/round
+- A nonlinear FedProx: final 72.44, peak 72.57 at round 124, slope over last 20 rounds +0.0038/round
+- A nonlinear FedSA-LoRA: final 72.76, peak 72.85 at round 174, slope over last 20 rounds +0.0024/round
+- A nonlinear FFA-LoRA: final 72.40, peak 72.59 at round 130, slope over last 20 rounds -0.0034/round
+- A nonlinear Local-only: final 69.91, peak 72.61 at round 63, slope over last 20 rounds -0.0093/round
+- A nonlinear Specialty oracle: final 73.82, peak 75.09 at round 99, slope over last 20 rounds -0.0124/round
+- B linear Centralized: final 79.46, peak 80.73 at round 93, slope over last 20 rounds -0.0023/round
+- B linear FedAvg: final 80.23, peak 80.67 at round 80, slope over last 20 rounds +0.0099/round
+- B linear FedProx: final 80.37, peak 80.83 at round 156, slope over last 20 rounds +0.0073/round
+- B linear FedSA-LoRA: final 80.11, peak 80.65 at round 71, slope over last 20 rounds -0.0007/round
+- B linear FedSAA: final 78.90, peak 79.76 at round 62, slope over last 20 rounds -0.0180/round
+- B linear FedSAA (rho = 0): final 79.70, peak 80.09 at round 48, slope over last 20 rounds +0.0013/round
+- B linear FedSAA-U: final 79.94, peak 80.24 at round 126, slope over last 20 rounds +0.0047/round
+- B linear FFA-LoRA: final 78.91, peak 79.00 at round 178, slope over last 20 rounds +0.0008/round
+- B linear FlexLoRA: final 80.23, peak 80.60 at round 73, slope over last 20 rounds +0.0029/round
+- B linear Local-only: final 77.74, peak 78.94 at round 37, slope over last 20 rounds -0.0002/round
+- B linear Specialty oracle: final 78.67, peak 80.94 at round 18, slope over last 20 rounds -0.0004/round
+- B none Linear probe: final 79.39, peak 79.50 at round 190, slope over last 20 rounds +0.0020/round
+- B nonlinear Centralized: final 78.30, peak 80.18 at round 9, slope over last 20 rounds +0.0054/round
+- B nonlinear FedAvg: final 79.93, peak 80.10 at round 95, slope over last 20 rounds +0.0019/round
+- B nonlinear FedProx: final 79.66, peak 80.15 at round 34, slope over last 20 rounds +0.0030/round
+- B nonlinear FedSA-LoRA: final 79.02, peak 79.46 at round 114, slope over last 20 rounds +0.0004/round
+- B nonlinear FFA-LoRA: final 78.70, peak 78.73 at round 60, slope over last 20 rounds +0.0048/round
+- B nonlinear Local-only: final 78.02, peak 78.72 at round 46, slope over last 20 rounds +0.0019/round
+- B nonlinear Specialty oracle: final 80.46, peak 81.45 at round 83, slope over last 20 rounds -0.0084/round
+
+## Measured similarities, attention shares and retained SVD energy
+- A linear fedsaa r1: S same 0.828, S other 0.008, w self 0.246, same 0.349, other 0.406, energy 0.997
+- A linear fedsaa r10: S same 0.906, S other 0.709, w self 0.107, same 0.177, other 0.716, energy 1.000
+- A linear fedsaa r40: S same 0.985, S other 0.973, w self 0.070, same 0.136, other 0.794, energy 1.000
+- A linear fedsaa r100: S same 0.992, S other 0.988, w self 0.068, same 0.134, other 0.798, energy 1.000
+- A linear fedsaa r200: S same 0.995, S other 0.993, w self 0.067, same 0.134, other 0.799, energy 1.000
+- A linear fedsaa_r0 r1: S same 0.958, S other 0.082, w self 0.208, same 0.383, other 0.408, energy 0.999
+- A linear fedsaa_r0 r10: S same 0.998, S other 0.973, w self 0.070, same 0.139, other 0.792, energy 1.000
+- A linear fedsaa_r0 r40: S same 0.999, S other 0.998, w self 0.067, same 0.134, other 0.800, energy 1.000
+- A linear fedsaa_r0 r100: S same 1.000, S other 1.000, w self 0.067, same 0.133, other 0.800, energy 1.000
+- A linear fedsaa_r0 r200: S same 1.000, S other 1.000, w self 0.067, same 0.133, other 0.800, energy 1.000
+- A linear fedsaa_u r1: S same 0.958, S other 0.082, w self 0.208, same 0.383, other 0.408, energy 1.000
+- A linear fedsaa_u r10: S same 0.994, S other 0.929, w self 0.075, same 0.148, other 0.778, energy 1.000
+- A linear fedsaa_u r40: S same 0.999, S other 0.997, w self 0.067, same 0.134, other 0.799, energy 1.000
+- A linear fedsaa_u r100: S same 0.999, S other 0.999, w self 0.067, same 0.133, other 0.800, energy 1.000
+- A linear fedsaa_u r200: S same 1.000, S other 1.000, w self 0.067, same 0.133, other 0.800, energy 1.000
+- A linear flexlora r1: S same nan, S other nan, w self nan, same nan, other nan, energy 0.999
+- A linear flexlora r10: S same nan, S other nan, w self nan, same nan, other nan, energy 1.000
+- A linear flexlora r40: S same nan, S other nan, w self nan, same nan, other nan, energy 1.000
+- A linear flexlora r100: S same nan, S other nan, w self nan, same nan, other nan, energy 1.000
+- A linear flexlora r200: S same nan, S other nan, w self nan, same nan, other nan, energy 1.000
+- B linear fedsaa r1: S same 0.857, S other 0.034, w self 0.231, same 0.348, other 0.420, energy 0.999
+- B linear fedsaa r10: S same 0.972, S other 0.929, w self 0.075, same 0.142, other 0.783, energy 1.000
+- B linear fedsaa r40: S same 0.991, S other 0.985, w self 0.068, same 0.134, other 0.797, energy 1.000
+- B linear fedsaa r100: S same 0.994, S other 0.990, w self 0.068, same 0.134, other 0.798, energy 1.000
+- B linear fedsaa r200: S same 0.992, S other 0.987, w self 0.068, same 0.134, other 0.798, energy 1.000
+- B linear fedsaa_r0 r1: S same 0.857, S other 0.034, w self 0.231, same 0.348, other 0.420, energy 0.999
+- B linear fedsaa_r0 r10: S same 0.987, S other 0.979, w self 0.069, same 0.135, other 0.796, energy 1.000
+- B linear fedsaa_r0 r40: S same 0.992, S other 0.990, w self 0.068, same 0.134, other 0.799, energy 1.000
+- B linear fedsaa_r0 r100: S same 0.993, S other 0.993, w self 0.068, same 0.133, other 0.799, energy 1.000
+- B linear fedsaa_r0 r200: S same 0.994, S other 0.994, w self 0.067, same 0.133, other 0.799, energy 1.000
+- B linear fedsaa_u r1: S same 0.952, S other 0.060, w self 0.204, same 0.371, other 0.425, energy 1.000
+- B linear fedsaa_u r10: S same 0.997, S other 0.975, w self 0.069, same 0.138, other 0.792, energy 1.000
+- B linear fedsaa_u r40: S same 0.999, S other 0.998, w self 0.067, same 0.134, other 0.800, energy 1.000
+- B linear fedsaa_u r100: S same 1.000, S other 0.999, w self 0.067, same 0.133, other 0.800, energy 1.000
+- B linear fedsaa_u r200: S same 1.000, S other 1.000, w self 0.067, same 0.133, other 0.800, energy 1.000
+- B linear flexlora r1: S same nan, S other nan, w self nan, same nan, other nan, energy 0.999
+- B linear flexlora r10: S same nan, S other nan, w self nan, same nan, other nan, energy 1.000
+- B linear flexlora r40: S same nan, S other nan, w self nan, same nan, other nan, energy 1.000
+- B linear flexlora r100: S same nan, S other nan, w self nan, same nan, other nan, energy 1.000
+- B linear flexlora r200: S same nan, S other nan, w self nan, same nan, other nan, energy 1.000
